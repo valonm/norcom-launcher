@@ -36,26 +36,6 @@ function copyUrl() {
   }, 3000);
 }
 
-document.getElementById('launcher').addEventListener('click', evt => {
-  const groups = getSelectedGroups();
-  if (!groups) {
-    alert('Must start with at least one active talk group');
-    return;
-  }
-  
-  document.getElementById("right").innerHTML = `<iframe id="openmhzFrame" style="flex: 1 1 auto;" src="about:blank"></iframe>`;
-  openmhzWindow = document.getElementById("openmhzFrame");
-  
-  if (openmhzWindow) {
-    openmhzWindow.contentWindow.document.write("<h3>Loading OpenMHz ...</h3>");
-    settings.groups = groups;
-    updateScanner();
-  } else {
-    alert("Popup blocked or failed.");
-  }
-  return true;
-});
-
 serverSelect.addEventListener('change', evt => {
     settings.server = evt.target.value;
     updateScanner();
@@ -99,3 +79,25 @@ window.addEventListener('click', (e) => {
     document.body.classList.remove('menu-open');
   }
 });
+
+// initialize
+(function(){
+  let groups = getSelectedGroups();
+  if (!groups) {
+    const firstOption = element.querySelector('option');
+    firstOption.checked = true; // Ensure at least one group is checked
+    groups = firstOption.dataset.value;
+  }
+  
+  document.getElementById("right").innerHTML = `<iframe id="openmhzFrame" style="flex: 1 1 auto;" src="about:blank"></iframe>`;
+  openmhzWindow = document.getElementById("openmhzFrame");
+  
+  if (openmhzWindow) {
+    openmhzWindow.contentWindow.document.write("<h3>Loading OpenMHz ...</h3>");
+    settings.groups = groups;
+    updateScanner();
+  } else {
+    alert("Popup blocked or failed.");
+  }
+  return true;
+})();
