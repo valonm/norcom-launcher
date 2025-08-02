@@ -1,0 +1,45 @@
+<html style="display:flex;height:100%;flex-direction: column;">
+    
+<head>
+  <title>NORCOM Scanner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js" defer></script>
+</head>
+
+<body style="display:flex;flex-direction: row;flex:1 1 auto" ;>
+  <div id="menu">
+    <div style="padding:1em; display:flex; flex-direction: column; gap: 1em; align-self: flex-start;">
+      <div style="display:flex; flex-direction: row; align-items: center; gap: 8px;">
+        <label for="server-select">Server</label>
+        <select name="server" id="server-select" style="flex-grow: 1;">
+            <option value="psern1" selected>psern1</option>
+            <option value="psern025">psern025</option>
+        </select>
+      </div>
+      <div>
+        <div class="talkgroup"><input id="disp" type="checkbox" checked="checked" data-value="1399" /><label for="disp">Dispatch 1</label></div>
+        <div class="talkgroup"><input id="tac1" type="checkbox" data-value="1389" /><label for="tac1">Tac 1</label></div>
+        <div class="talkgroup"><input id="tac2" type="checkbox" data-value="1387" /><label for="tac2">Tac 2</label></div>
+        <div class="talkgroup"><input id="tac3" type="checkbox" data-value="1385" /><label for="tac3">Tac 3</label></div>
+        <div class="talkgroup"><input id="tac4" type="checkbox" data-value="1383" /><label for="tac4">Tac 4</label></div>
+        <div class="talkgroup"><input id="tac5" type="checkbox" data-value="1381" /><label for="tac5">Tac 5</label></div>
+        <div class="talkgroup"><input id="tac6" type="checkbox" data-value="1379" /><label for="tac6">Tac 6</label></div>
+        <div class="talkgroup"><input id="tac7" type="checkbox" data-value="1377" /><label for="tac7">Tac 7</label></div>
+        <div class="talkgroup"><input id="tac8" type="checkbox" data-value="1963" /><label for="tac8">Tac 8</label></div>
+        <div class="talkgroup"><input id="tac9" type="checkbox" data-value="1965" /><label for="tac9">Tac 9</label></div>
+        <div class="talkgroup"><input id="tac10" type="checkbox" data-value="1967" /><label for="tac10">Tac 10</label></div>
+        <div class="talkgroup"><input id="amb" type="checkbox" data-value="1393" /><label for="amb">NORCOM Ambulance</label></div>
+      </div>
+      <div>
+        <button onclick="copyUrl()" style=" width: 100%;">Copy URL</button>
+        <div id="message" style="font-size: .75em; font-weight: 100;"></div>
+      </div>
+    </div>
+    <div id="menu-toggle" aria-label="Open menu">Launcher Options &#9776;</div>
+  </div>
+  <div id="right" style="flex: 1 1 auto; display:flex;justify-content: stretch; align-items: stretch;">
+    <div style="flex:1 1 auto;display:flex;justify-content: center; align-items: flex-end;">
+      <button id="launcher" onclick="evt => launch(evt)" style="padding: 15px; margin-bottom: 16px;">Launch Scanner</button>
+    </div>
+  </div>
+</body>
